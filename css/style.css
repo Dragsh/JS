@@ -1,0 +1,96 @@
+body{
+    background-color: azure;
+}
+
+main {
+    margin-top: 6pt;
+    margin-bottom: 6pt;
+}
+
+/* стили для меню навигации по страницам */
+nav {
+    color: darkgreen;
+    padding: 24pt;
+}
+
+/*--------------------------------------------------------------------------*/
+
+/* стиль блока для размещения контента */
+article {
+    padding: 12pt;
+}
+
+h3 {
+    color: #2E74B5;
+}
+
+/*--------------------------------------------------------------------------*/
+
+/* стиль для подвала */
+footer {
+    height: 2em;
+    color: lightcyan;
+    border-top: lightgreen solid 1px;
+
+    margin: 0 20px;
+}
+
+/* шрифт заголовка в подвале главной страницы */
+footer h5 {
+    font-size: 9pt;
+}
+
+/* стиль ссылки на почтовый адрес в подвале страницы */
+a[href^="mailto"] {
+    color:darkgray;
+    text-decoration: none;
+}
+
+a[href^="mailto"]:hover {
+    color: azure;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Ширина таблицы для задачи 1 */
+.width-600 {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*
+   Оформление положительных элементов массива
+*/
+.mark-yes {
+    color: red;
+}
+
+/*
+   Оформление отрицательных элементов массива
+*/
+.mark-no {
+    color: blue;
+}
+
+.mark-possibly {
+    color: green;
+}
+
+canvas {
+    border: 1px solid darkgrey;
+}
+
+input.invalid {
+    background-color: Pink;
+}
+
+input.valid {
+    background-color: LightGreen;
+}
+
+span:hover {
+    color: #8B008B;
+    background-color: #00FF7F;
+    font-size:24px;
+}

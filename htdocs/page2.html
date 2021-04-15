@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Задание 2</title>
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="shortcut icon" href="../imgs/home.ico" type="image/x-icon" />
+    <link rel="icon" href="../imgs/home.ico" type="image/x-icon" />
+
+    <!-- подключение файла вспомогательных функций -->
+
+
+    <script src="../js/page2.js"></script>
+    <script src="../js/utils.js"></script>
+
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+<header class ="container-fluid">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top ">
+        <a class="navbar-brand" href="../index.html">Главная</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" title="Ремонт бытовой техники" href="page1.html">Задача №1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../htdocs/page2.html">Задача №2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../htdocs/page3.html">Задача №3</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main class="container">
+    <section class="row">
+        <article class="offset-1 col-10 bg-light" >
+            <button id="btnSlideToggle" class="btn btn-warning float-right">Условия задачи</button>
+            <br />
+            <br />
+            <div id="slideToggle" class="text-justify" >
+                <p class="text-justify">
+                    <b>Задача 2.</b> Создать массив объектов при помощи функции-конструктора Worker.
+                    В массиве должно быть не менее 10 экземпляров. В объекте Worker должны быть следующие поля:
+                </p>
+                <ul>
+                    <li>фамилия и инициалы работника;</li>
+                    <li>название занимаемой должности;</li>
+                    <li>год поступления на работу;</li>
+                    <li>имя файла с фотографией работника;</li>
+                    <li>величина оклада работника;</li>
+                    <li>метод формирования строки с данными работника: toString();</li>
+                    <li>метод вычисления стажа работника для текущей даты.</li>
+                </ul>
+
+                <p class="text-justify">
+                    Хранить массив в локальном хранилище, в формате JSON.
+                    Выполнить для массива работников (объектов Worker)
+                    при помощи кликов по экранным кнопкам или по выбранным клавишам следующие обработки:
+                </p>
+                <ul>
+                    <li>вывод массива в исходном порядке;</li>
+                    <li>вывод массива с упорядочиванием фамилий по алфавиту;</li>
+                    <li>вывод массива с выделением работников с окладами, равными минимальному, упорядочивание по алфавиту;</li>
+                    <li>вывод массива с выделением работников с окладами, равными максимальному, упорядочивание по должностям;</li>
+                    <li>вывод массива с выделением работников с превышением заданного в строке ввода стажа работы, упорядочивать массив по окладу. </li>
+                </ul>
+                <p class="text-justify">
+                    Разработайте форму (на той же странице, на которой выводится массив работников) для добавления работника,
+                    должность работника выбирайте из выпадающего списка. Все поля обязательные для заполнения.
+                    По кнопке «Отмена» все поля формы очищаются, по кнопке «Добавить» создается новый объект Worker,
+                    добавляется в массив объектов, выводится на страницу, массив обновляется в локальном хранилище.
+                </p>
+                <p class="text-justify">
+                    Задание выводите в область, разворачиваемую по клику
+                    (используйте slideToggle() или подобные методы).
+                </p>
+                <p class="text-justify">
+                    Реализуйте редактирование (в той же форме ввода) и удаление записей в массиве
+                    (кнопки редактирования и удаления добавляйте в коде).
+                </p>
+
+            </div>
+
+            <div class="button-group text-center">
+                <button id="btnOriginalOrder" class="btn btn-success btn-info">Исходный</button>
+                <button id="btnSurnameByAlphabet" class="btn btn-success btn-info">Фамилии по алфавиту</button>
+                <button id="btnMinSalary" class="btn btn-success btn-info">Оклад равен минимальному</button>
+                <button id="btnMaxSalary" class="btn btn-success btn-info">Оклад равен максимальному</button>
+            </div>
+            <br />
+            <br />
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <button id="btnOverExp" class="btn btn-success btn-info" type="button">Стаж выше заданного</button>
+                </div>
+                <input id="overExp" type="text" class="form-control" aria-describedby="basic-addon1">
+            </div>
+            <h6 class="text-right text-danger">
+                *для увольнения нажмите левой кнопкой мыши на строку с данными сотрудника, которого хотите уволить и подтвердите действие
+            </h6>
+            <br /><br />
+            <h4 id="workersHeader">Сотрудники:</h4>
+            <table class="table shadow-lg table-bordered table-striped width-610" >
+                <tr class=" bg-secondary text-white text-center ">
+                    <th>Фамилия, инициалы</th>
+                    <th>Должность</th>
+                    <th>Год приема на работу</th>
+                    <th>Фотография</th>
+                    <th>Оклад</th>
+                    <th>Стаж</th>
+                </tr>
+                <tbody id="workers"></tbody>
+            </table>
+            <br /><br />
+            <h3 class="text-center">Добавить сотрудника</h3>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"  >Фамилия инициалы</span>
+                </div>
+                <input  id ="surnameNp" type="text" class="form-control" placeholder="ФИО" value="Тугов В. П." required>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" >Должность</span>
+                </div>
+                <select class="custom-select" id = "position">
+                    <option selected>Директор</option>
+                    <option value="1">Бухгалтер</option>
+                    <option value="2">Менеджер</option>
+                    <option value="3">Инженер</option>
+                    <option value="4">Кладовщик</option>
+                    <option value="5">Уборщица</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Год приема на работу</span>
+                </div>
+                <input id="enrollmentYear" type="number" class="form-control" placeholder="год приёма" value="1999" required min="1950" max="2020">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Оклад</span>
+                </div>
+                <input id="salary" type="number" class="form-control" placeholder="35000" value="35000" required min="35000" max="150000">
+                <div class="input-group-append">
+                    <span class="input-group-text">руб.</span>
+                </div>
+            </div>
+            <div class="text-justify">
+                <button id="btnAddNewWorkerSave" class="btn btn-success btn-lg float-left">Добавить сотрудника</button>
+                <button id="btnAddNewWorkerCancel" class="btn btn-danger btn-lg float-right">Отмена</button>
+            </div>
+
+        </article>
+
+    </section>
+
+
+</main>
+
+
+
+</body>
+</html>
